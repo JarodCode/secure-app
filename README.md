@@ -1,33 +1,51 @@
 # Secure App
 
-A full-stack web application with secure authentication using Angular, Express.js, and PostgreSQL.
+Application web sécurisée avec authentification JWT, Angular 20, Express.js et PostgreSQL.
 
-## How to Start
+## Démarrage rapide
 
-1. **Start the application:**
+### Environnement de développement
 ```bash
-docker-compose up --build
+docker-compose -f docker-compose.dev.yml up -d
 ```
+Accès:
+- Base de données: `localhost:5432`
+- Adminer: `http://localhost:8080`
 
-2. **Access the app:**
-- Frontend: https://localhost:4200
-- Backend API: https://localhost:4000
-- Database Admin: http://localhost:8080
-
-3. **Login credentials:**
-- Admin: `admin` / `admin`
-- User: `user1` / `user1`
-
-4. **Stop the application:**
+### Environnement de production
 ```bash
-docker-compose down
+docker-compose -f docker-compose.prod.yml up --build -d
 ```
+Accès:
+- Frontend: `http://localhost:8080`
+- Backend API: `https://localhost:4000`
+- Adminer: `http://localhost:8081`
 
----
+## Identifiants
+
+**Admin:** `admin` / `admin`  
+**User:** `user1` / `user1`
+
+**Base de données (Adminer):**
+- Système: PostgreSQL
+- Serveur: `db`
+- Utilisateur: `secureapp`
+- Mot de passe: `secureapp`
+- Base: `secureapp`
+
+## Arrêt
+
+```bash
+# Développement
+docker-compose -f docker-compose.dev.yml down
+
+# Production
+docker-compose -f docker-compose.prod.yml down
+```
 
 ## Technologies
 
-- **Frontend**: Angular 20
-- **Backend**: Node.js + Express + TypeScript
-- **Database**: PostgreSQL
-- **Security**: JWT authentication, HTTPS
+- Frontend: Angular 20 + Nginx
+- Backend: Node.js 22 + Express + TypeScript
+- Database: PostgreSQL 16
+- Security: JWT, HTTPS, HTTP-only cookies

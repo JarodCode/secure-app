@@ -5,16 +5,16 @@ import cors from 'cors'
 import morgan from 'morgan'
 import cookieParser from 'cookie-parser'
 
-import publicRouter from './routes/public.ts'
+import publicRouter from './routes/public.js'
 
-import { ensureAdmin } from './db/initAdmin.ts'
-import usersRouter from './routes/users.ts'
+import { ensureAdmin } from './db/initAdmin.js'
+import usersRouter from './routes/users.js'
 
 import 'dotenv/config'
 
-import authRouter from './routes/auth.ts'
-import { verifyToken } from './middleware/token-management.ts'
-import { requireAdmin } from './middleware/auth-admin.ts'
+import authRouter from './routes/auth.js'
+import { verifyToken } from './middleware/token-management.js'
+import { requireAdmin } from './middleware/auth-admin.js'
 
 
 // Création de l’application Express
@@ -41,7 +41,11 @@ app.use(cookieParser())
 
 // Configuration CORS : autoriser le front Angular en HTTPS local
 app.use(cors({
-    origin: 'https://localhost:4200',
+    origin: ['http://localhost:4200',
+                'https://localhost:4200',
+                'http://localhost:8080',
+                'https://localhost:8443',
+    ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE','OPTIONS'],
     // allowedHeaders: ['Content-Type', 'Authorization']
@@ -56,8 +60,8 @@ app.use('/api/admin', verifyToken, requireAdmin, (req, res) => {
 })
 
 // Chargement du certificat et clé générés par mkcert (étape 0)
-const key = fs.readFileSync('../certs/localhost-key.pem')
-const cert = fs.readFileSync('../certs/localhost.pem')
+const key = fs.readFileSync('./certs/localhost-key.pem')
+const cert = fs.readFileSync('./certs/localhost.pem')
 
 //Vérifie si le compte est admin
 await ensureAdmin()

@@ -9,38 +9,21 @@ frontend/.angular/
 backend/dist/
 backend/build/
 
-# Environment files - IMPORTANT: Keep .env files for demo
-# backend/.env (included for professor)
-
 # IDE files
 .vscode/
 .idea/
 *.sublime-*
-*.sublime-workspace
 
 # OS files
 .DS_Store
 Thumbs.db
 *.swp
-*.swo
-*~
 
 # Logs
 *.log
-logs/
 
-# Docker data
-docker-data/
-volumes/
+# Docker volumes
 db_data/
-
-# Temporary files
-tmp/
-temp/
-*.tmp
-
-# Angular specific
-.angular/cache/
 
 # TypeScript
 *.tsbuildinfo
