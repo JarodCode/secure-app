@@ -1,13 +1,16 @@
-# Dependencies - Backend & Frontend
+# Dependencies
 node_modules/
 backend/node_modules/
 frontend/node_modules/
 
 # Build outputs
-frontend/build/
 frontend/dist/
-backend/build/
+frontend/.angular/
 backend/dist/
+backend/build/
+
+# Environment files - IMPORTANT: Keep .env files for demo
+# backend/.env (included for professor)
 
 # IDE files
 .vscode/
@@ -26,11 +29,18 @@ Thumbs.db
 *.log
 logs/
 
-# Docker data (not the compose file itself)
+# Docker data
 docker-data/
 volumes/
+db_data/
 
 # Temporary files
 tmp/
 temp/
 *.tmp
+
+# Angular specific
+.angular/cache/
+
+# TypeScript
+*.tsbuildinfo
