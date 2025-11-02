@@ -5,19 +5,23 @@ Application web sécurisée avec authentification JWT, Angular 20, Express.js et
 ## Démarrage rapide
 
 ### Environnement de développement
+
 ```bash
-docker-compose -f docker-compose.dev.yml up -d
+docker compose -f docker-compose.dev.yml up -d
 ```
+
 Accès:
 - Base de données: `localhost:5432`
 - Adminer: `http://localhost:8080`
 
 ### Environnement de production
+
 ```bash
-docker-compose -f docker-compose.prod.yml up --build -d
+docker compose -f docker-compose.prod.yml up --build -d
 ```
+
 Accès:
-- Frontend: `http://localhost:8080`
+- Frontend: `https://localhost:8443`
 - Backend API: `https://localhost:4000`
 - Adminer: `http://localhost:8081`
 
@@ -26,21 +30,14 @@ Accès:
 **Admin:** `admin` / `admin`  
 **User:** `user1` / `user1`
 
-**Base de données (Adminer):**
-- Système: PostgreSQL
-- Serveur: `db`
-- Utilisateur: `secureapp`
-- Mot de passe: `secureapp`
-- Base: `secureapp`
-
 ## Arrêt
 
 ```bash
 # Développement
-docker-compose -f docker-compose.dev.yml down
+docker compose -f docker-compose.dev.yml down
 
 # Production
-docker-compose -f docker-compose.prod.yml down
+docker compose -f docker-compose.prod.yml down
 ```
 
 ## Technologies
