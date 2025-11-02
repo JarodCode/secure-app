@@ -1,0 +1,36 @@
+# Dependencies - Backend & Frontend
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Build outputs
+frontend/build/
+frontend/dist/
+backend/build/
+backend/dist/
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Docker data (not the compose file itself)
+docker-data/
+volumes/
+
+# Temporary files
+tmp/
+temp/
+*.tmp

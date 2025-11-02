@@ -1,0 +1,40 @@
+<div class="admin-container">
+  <h1>Administration - Liste des utilisateurs</h1>
+
+  @if (isLoading()) {
+    <p class="loading">⏳ Chargement...</p>
+  }
+
+  @if (error()) {
+    <div class="error">
+      ❌ {{ error() }}
+    </div>
+  }
+
+  @if (users().length > 0) {
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Login</th>
+          <th>Rôle</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (user of users(); track user.id) {
+          <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.login }}</td>
+            <td>
+              <span [class]="user.role === 'admin' ? 'badge-admin' : 'badge-user'">
+                {{ user.role }}
+              </span>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  } @else if (!isLoading()) {
+    <p>Aucun utilisateur trouvé</p>
+  }
+</div>

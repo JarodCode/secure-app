@@ -1,0 +1,19 @@
+<div class="home-container">
+  <h1>Bienvenue</h1>
+
+  @if (isLoggedIn()) {
+    <!-- Utilisateur connecté -->
+    <div class="user-info">
+      <h2>Vous êtes connecté</h2>
+      <p><strong>Login :</strong> {{ currentUser()?.login }}</p>
+      <p><strong>Rôle :</strong> {{ currentUser()?.role }}</p>
+      <button (click)="logout()" class="btn-logout">Déconnexion</button>
+    </div>
+  } @else {
+    <!-- Personne n'est connecté -->
+    <div class="login-prompt">
+      <p>Vous n'êtes pas connecté.</p>
+      <a routerLink="/login" class="btn-login">Se connecter</a>
+    </div>
+  }
+</div>
